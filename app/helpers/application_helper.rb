@@ -2,8 +2,8 @@ module ApplicationHelper
     def comment
     end
 
-    #filter by ascending or descending order
-    def ascdesc(column, title = nil)
+    #filter by ascending or descending order. Defaults to Published Date, Ascending
+    def ascdesc(column, title = "published")
         title ||= column.titleize
         css_class = column == sort_column ? "current #{sort_direction}" : nil
         direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
