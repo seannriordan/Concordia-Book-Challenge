@@ -1,0 +1,47 @@
+
+
+<div class="grid place-items-center">
+
+  <br />
+  <br />
+  <div>
+    <p class="text-center font-bold">Sean Riordan<br>Concordia Coding Challenge</p>
+  </div>
+
+  <br />
+  <div>
+    <p class="text-center">Add books below. <br>Click on headers to sort.</p>
+  </div>
+  
+  <br />
+  <div class="">
+    <h1 class="font-bold text-4xl"></h1>
+    <%= link_to 'New book', new_book_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <br />
+  <div class="">
+    <table class="table-auto border">
+      <tr>
+        <th class="font-bold p-2 border-b text-left"><%= ascdesc "title", "Title"%></th>              
+        <th class="font-bold p-2 border-b text-left"><%= ascdesc "author", "Author"%></th>                      
+        <th class="font-bold p-2 border-b text-left"><%= ascdesc "isbn", "ISBN"%></th>
+        <th class="font-bold p-2 border-b text-left"><%= ascdesc "published", "Published Date"%></th>
+        <th class="font-bold p-2 border-b text-left"></th>
+      </tr>
+      <% @books.each do |book| %>
+      <tr class="hover:bg-stone-100">
+        <td class="p-2 border-b text-left"><%= book.title%></td>         
+        <td class="p-2 border-b text-left"><%=book.author%></td>
+        <td class="p-2 border-b text-left"><%=book.isbn%></td>
+        <td class="p-2 border-b text-left"><%=book.published%></td>
+        <td class="p-2 border-b text-left"><% if action_name != "show" %>
+        <%= link_to 'Edit', edit_book_path(book), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+      <% end %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+  
+</div>
