@@ -35,9 +35,11 @@
         <td class="p-2 border-b text-left"><%=book.author%></td>
         <td class="p-2 border-b text-left"><%=book.isbn%></td>
         <td class="p-2 border-b text-left"><%=book.published%></td>
-        <td class="p-2 border-b text-left"><% if action_name != "show" %>
-        <%= link_to 'Edit', edit_book_path(book), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-      <% end %></td>
+        <td class="p-2 border-b text-left">
+          <% if action_name != "show" %>
+            <%= link_to 'Edit', edit_book_path(book), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+          <% end %>
+        </td>
       </tr>
       <% end %>
     </table>
